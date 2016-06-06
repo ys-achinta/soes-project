@@ -1,5 +1,7 @@
 package soes.api;
 
+import java.util.Objects;
+
 public class Stock {
     private Integer stockId;
     private String companyName;
@@ -78,12 +80,18 @@ public class Stock {
     }
 
 
-    public void buy(Integer quantityToBeSold) {
+    public void buy(Integer quantityToBeSold) throws Exception {
+        if(!Objects.equals(this.getSide(), Constants.BUY_ORDER)){
+            throw new Exception("Has to be a buy order to buy");
+        }
         setStockRemaining(quantityToBeSold);
         setOrderStatus();
     }
 
-    public void sell(Integer quantityToBePurchased) {
+    public void sell(Integer quantityToBePurchased) throws Exception {
+        if(!Objects.equals(this.getSide(), Constants.SELL_ORDER)){
+            throw new Exception("Has to be a sell order to sell");
+        }
         setStockRemaining(quantityToBePurchased);
         setOrderStatus();
     }

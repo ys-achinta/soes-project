@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SOESRunner
 {
-    public static void main( String[] args ) {
+    public static void main( String[] args ) throws Exception {
         CSVRead csvRead = new CSVRead();
         List<Stock> stocks = csvRead.run();
 

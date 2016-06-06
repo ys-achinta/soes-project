@@ -7,12 +7,12 @@ public class StockExchange {
         this.stockList = stockList;
     }
 
-    public StockList getProcessedStocks(){
+    public StockList getProcessedStocks() throws Exception {
         processStocks();
         return stockList;
     }
 
-    private void processStocks(){
+    private void processStocks() throws Exception {
         Stock buyOrder;
         Stock sellOrder;
         for(Stock stock : stockList.getStocks()){
@@ -30,7 +30,7 @@ public class StockExchange {
         }
     }
 
-    private void process(Stock buyOrder, Stock sellOrder) {
+    private void process(Stock buyOrder, Stock sellOrder) throws Exception {
         Integer quantityToBeSold = sellOrder.getQuantityForTransaction();
         Integer quantityToBePurchased = buyOrder.getQuantityForTransaction();
 
